@@ -8,8 +8,10 @@ if vim is started with no argument, the recent_files list is automatically opene
 CHANGELOG
 
 20050309:
+  * no add cvs adn svn temp file
+  * format edited file list better way
+20050309:
   * edited file list is managed better way
-
 20050304:
   * initial release
 
