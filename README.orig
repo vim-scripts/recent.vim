@@ -1,0 +1,17 @@
+DESCRIPTION
+
+Save all written files into file ~/.vim/recent._files.
+Add command :recent to open a buffer listing all edited files.
+
+if vim is started with no argument, the recent_files list is automatically opened
+
+
+INSTALLATION
+
+cp recent.vim ~/.vim/plugin/
+cp recent.py ~/bin/
+
+
+CONTACT
+
+thnguyen@dental-on-line.fr
