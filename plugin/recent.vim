@@ -3,7 +3,7 @@
 " avec les nom des fichiers, la date et l'heure d'enregistrement
 
 function! AddToRecentFiles()
-    silent exec ':!recent.py $PWD/%'
+    silent exec ':!$HOME/bin/recent.py $PWD/%'
 endfunction
 
 function! OptionFiles()

@@ -11,25 +11,24 @@ if len(sys.argv) == 1:
     usage()
     sys.exit(1)
 
-
 ### MAIN ####
 
-recent_files= os.path.join(os.environ["HOME"],'.vim/recent_files')
-
 filename=sys.argv[1]
+tmpfilename=os.path.join(os.environ["HOME"],'.vim/.recent_files.tmp')
+recent_files= os.path.join(os.environ["HOME"],'.vim/recent_files')
 date=time.strftime('%Y%m%d %H:%M' ,time.localtime())
-append=True
+
+tmpfile=open(tmpfilename, "a")
 
 if os.path.exists(recent_files):
-    fic=open( recent_files, 'r' )
-    for line  in fic.readlines():
-        if line[:-19] == filename:
-            append=False
-            break
-   
-fic.close()
+    fic=open(recent_files, 'r')
+    for line in fic.readlines():
+        if line[:-19] != filename:
+            print >> tmpfile, line[:-1]
 
-if append:
-    fic=open( recent_files, 'a' )
-    print >> fic,filename + "    " + date
     fic.close()
+
+print >> tmpfile,filename + "    " + date
+tmpfile.close()
+
+os.rename(tmpfilename, recent_files)
